@@ -107,16 +107,14 @@ class TikTokFavoriteAnimationIcon extends StatefulWidget {
     Key? key,
     this.onAnimationComplete,
     this.position,
-    this.size: 200,
+    this.size = 200,
   }) : super(key: key);
 
   @override
-  _TikTokFavoriteAnimationIconState createState() =>
-      _TikTokFavoriteAnimationIconState();
+  _TikTokFavoriteAnimationIconState createState() => _TikTokFavoriteAnimationIconState();
 }
 
-class _TikTokFavoriteAnimationIconState
-    extends State<TikTokFavoriteAnimationIcon> with TickerProviderStateMixin {
+class _TikTokFavoriteAnimationIconState extends State<TikTokFavoriteAnimationIcon> with TickerProviderStateMixin {
   late AnimationController _animationController;
 
   double rotate = pi / 10.0 * (2 * Random().nextDouble() - 1);

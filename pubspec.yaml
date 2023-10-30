@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: '>=3.0.5 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -33,22 +33,22 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  url_launcher: ^6.1.5
+  cupertino_icons: ^1.0.6
+  url_launcher: ^6.2.1
   #瀑布流
-  flutter_staggered_grid_view: ^0.6.2
+  flutter_staggered_grid_view: ^0.7.0
   #生命周期
-  lifecycle: ^0.6.0
+  lifecycle: ^0.8.0
   #跑马灯
   marquee: ^2.2.3
   #播放器
-  video_player: ^2.4.7
+  video_player: ^2.7.2
 
   # 状态管理
   #  provider: ^6.0.3
-  get: 4.6.5
-  permission_handler: ^10.0.0
-  package_info_plus: ^1.4.3+1
+  get: ^4.6.6
+  permission_handler: ^11.0.1
+  package_info_plus: ^4.2.0
 
   #网络
   dio: ^4.0.6
@@ -58,27 +58,27 @@ dependencies:
   #网络状态监听
   connectivity: ^3.0.6
   #持久化数据库
-  shared_preferences: ^2.0.15
-  localstorage: ^4.0.0+1
+  shared_preferences: ^2.2.2
+  localstorage: ^4.0.1+4
   share: ^2.0.4
   logger: ^1.1.0
 
-  flutter_screenutil: ^5.5.4
+  flutter_screenutil: ^5.9.0
   #toask
-  fluttertoast: ^8.0.8
+  fluttertoast: ^8.2.2
   #网络图片库
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.3.0
   #下拉刷新
-  easy_refresh: ^3.0.4+2
-  pull_to_refresh_notification: ^2.3.0
+  easy_refresh: ^3.3.2+2
+  pull_to_refresh_notification: ^3.1.0
   #闪光
-  shimmer: ^2.0.0
+  shimmer: ^3.0.0
   auto_size_text: ^3.0.0
   waterfall_flow: ^3.0.2
   webview_flutter: ^3.0.4
   flutter_swiper_view: ^1.1.8
   #bugly
-  flutter_bugly: ^0.3.0
+  flutter_bugly: ^0.4.4
 
 dev_dependencies:
   flutter_test:

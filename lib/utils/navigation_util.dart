@@ -20,13 +20,11 @@ class NavigationUtil {
     String routeName, {
     Object? arguments,
   }) {
-    return navigatorKey.currentState
-        ?.pushNamed(routeName, arguments: arguments);
+    return navigatorKey.currentState?.pushNamed(routeName, arguments: arguments);
   }
 
   Future<dynamic>? _push(Widget page) {
-    return navigatorKey.currentState
-        ?.push(CupertinoPageRoute<dynamic>(builder: (BuildContext context) {
+    return navigatorKey.currentState?.push(CupertinoPageRoute<dynamic>(builder: (BuildContext context) {
       return page;
     }));
   }
@@ -39,8 +37,7 @@ class NavigationUtil {
   }
 
   Future<dynamic>? _pushReplacement(Widget page) {
-    return navigatorKey.currentState?.pushReplacement(
-        CupertinoPageRoute<dynamic>(builder: (BuildContext context) {
+    return navigatorKey.currentState?.pushReplacement(CupertinoPageRoute<dynamic>(builder: (BuildContext context) {
       return page;
     }));
   }
@@ -62,8 +59,7 @@ class NavigationUtil {
     // );
   }
 
-  void _pushWeb(
-      {String? title, String? titleId, String? url, bool isHome: false}) {
+  void _pushWeb({String? title, String? titleId, String? url, bool isHome = false}) {
     if (url == null || url.isEmpty) return;
     if (url.endsWith(".apk")) {
       launchInBrowser(url, title: title ?? titleId);
@@ -83,8 +79,7 @@ class NavigationUtil {
     String routeName, {
     Object? arguments,
   }) {
-    return NavigationUtil.getInstance()
-        ._pushNamed(routeName, arguments: arguments);
+    return NavigationUtil.getInstance()._pushNamed(routeName, arguments: arguments);
   }
 
   static Future<dynamic>? push(Widget page) {
@@ -95,8 +90,7 @@ class NavigationUtil {
     String routeName, {
     Object? arguments,
   }) {
-    return NavigationUtil.getInstance()
-        ._pushReplacementNamed(routeName, arguments: arguments);
+    return NavigationUtil.getInstance()._pushReplacementNamed(routeName, arguments: arguments);
   }
 
   static Future<dynamic>? pushReplacement(Widget page) {
@@ -111,10 +105,8 @@ class NavigationUtil {
     NavigationUtil.getInstance()._popToRoot();
   }
 
-  static void pushWebView(
-      {String? title, String? titleId, String? url, bool isHome: false}) {
-    NavigationUtil.getInstance()
-        ._pushWeb(title: title, titleId: titleId, url: url, isHome: isHome);
+  static void pushWebView({String? title, String? titleId, String? url, bool isHome = false}) {
+    NavigationUtil.getInstance()._pushWeb(title: title, titleId: titleId, url: url, isHome: isHome);
   }
 
   static Future<dynamic> launchInBrowser(String url, {String? title}) async {

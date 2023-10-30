@@ -31,7 +31,7 @@ void _initIOSAndAndroid() {
   //ios、android相关代码
   FlutterBugly.postCatchedException(() {
     _initProject();
-  }, handler: (FlutterErrorDetails details) {
+  }, onException: (FlutterErrorDetails details) {
     //继续打印到控制台
     FlutterError.dumpErrorToConsole(details, forceReport: true);
   });

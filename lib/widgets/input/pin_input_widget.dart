@@ -6,12 +6,10 @@ import 'package:flutter/services.dart';
 ///验证码输入框
 class VerificationCodeInputDemoPage2 extends StatefulWidget {
   @override
-  _VerificationCodeInputDemoPage2State createState() =>
-      _VerificationCodeInputDemoPage2State();
+  _VerificationCodeInputDemoPage2State createState() => _VerificationCodeInputDemoPage2State();
 }
 
-class _VerificationCodeInputDemoPage2State
-    extends State<VerificationCodeInputDemoPage2> {
+class _VerificationCodeInputDemoPage2State extends State<VerificationCodeInputDemoPage2> {
   FocusNode focusNode = FocusNode();
   TextEditingController textEditingController = TextEditingController();
 
@@ -28,13 +26,7 @@ class _VerificationCodeInputDemoPage2State
         },
         child: Container(
           alignment: Alignment.center,
-          child: PINInputWidget(
-              title: '支付',
-              tipTitle: '支付',
-              needTip: true,
-              node: focusNode,
-              textEditingController: textEditingController,
-              onChanged: (String value) {}),
+          child: PINInputWidget(title: '支付', tipTitle: '支付', needTip: true, node: focusNode, textEditingController: textEditingController, onChanged: (String value) {}),
         ),
       ),
     );
@@ -79,10 +71,7 @@ class PINInputWidget extends StatelessWidget {
             children: <Widget>[
               Text(
                 title,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                style: const TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Expanded(child: Container()),
               if (needTip)
@@ -117,8 +106,7 @@ class PINInputWidget extends StatelessWidget {
 }
 
 ///PIN码输入框样式
-CodeInputBuilder pinRectangle(BuildContext context,
-    {EdgeInsetsGeometry? edgeInsets, bool needApex = true}) {
+CodeInputBuilder pinRectangle(BuildContext context, {EdgeInsetsGeometry? edgeInsets, bool needApex = true}) {
   const double codeSize = 6;
   double padding = 50.0;
   if (edgeInsets?.horizontal != null) {
@@ -128,8 +116,7 @@ CodeInputBuilder pinRectangle(BuildContext context,
   final double width = MediaQuery.of(context).size.width;
   final double codeFullSize = (width - 2 * padding) / codeSize;
   final double codeNormalSize = codeFullSize;
-  const TextStyle textStyle =
-      TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
+  const TextStyle textStyle = TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
   return _pinContainerized(
       totalSize: Size(codeFullSize, codeFullSize),
       emptySize: Size(codeNormalSize, codeNormalSize),
@@ -182,8 +169,7 @@ CodeInputBuilder _pinContainerized(
       right: BorderSide(width: width, color: borderColor),
       bottom: BorderSide(width: width, color: borderColor),
     ),
-    borderRadius: const BorderRadius.only(
-        topLeft: borderRadiusSize, bottomLeft: borderRadiusSize),
+    borderRadius: const BorderRadius.only(topLeft: borderRadiusSize, bottomLeft: borderRadiusSize),
     color: color,
   );
 
@@ -195,8 +181,7 @@ CodeInputBuilder _pinContainerized(
       right: BorderSide(width: width, color: borderColor),
       bottom: BorderSide(width: width, color: borderColor),
     ),
-    borderRadius: const BorderRadius.only(
-        topRight: borderRadiusSize, bottomRight: borderRadiusSize),
+    borderRadius: const BorderRadius.only(topRight: borderRadiusSize, bottomRight: borderRadiusSize),
     color: color,
   );
 
@@ -221,8 +206,7 @@ CodeInputBuilder _pinContainerized(
         width: char.isEmpty ? emptySize.width : filledSize.width,
         height: char.isEmpty ? emptySize.height : filledSize.height,
         alignment: Alignment.center,
-        child:
-            Text('•', style: char.isEmpty ? emptyTextStyle : filledTextStyle),
+        child: Text('•', style: char.isEmpty ? emptyTextStyle : filledTextStyle),
       ));
 }
 
@@ -238,16 +222,12 @@ CodeInputBuilder pinLine(BuildContext context) {
       filledSize: Size(codeNormalSize, codeNormalSize),
       borderRadius: null,
       alignment: Alignment.centerLeft,
-      border: Border(
-          bottom:
-              BorderSide(color: Theme.of(context).primaryColor, width: 0.5)),
+      border: Border(bottom: BorderSide(color: Theme.of(context).primaryColor, width: 0.5)),
       color: Colors.transparent,
-      textStyle: const TextStyle(
-          color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.bold));
+      textStyle: const TextStyle(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.bold));
 }
 
-Widget renderTipIcon(BuildContext context, String title, GlobalKey key,
-    {bool expanded = true, double width = 0, bool needIcon = true}) {
+Widget renderTipIcon(BuildContext context, String title, GlobalKey key, {bool expanded = true, double width = 0, bool needIcon = true}) {
   final Widget titleWidget = Container(
       alignment: Alignment.centerLeft,
       child: RichText(
@@ -260,10 +240,7 @@ Widget renderTipIcon(BuildContext context, String title, GlobalKey key,
             text: title,
             children: const <TextSpan>[
               TextSpan(
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
                 text: '  ',
               ),
             ]),
@@ -304,8 +281,7 @@ class UpWhitelistingTextInputFormatter extends TextInputFormatter {
   /// Creates a formatter that allows only the insertion of whitelisted characters patterns.
   ///
   /// The [whitelistedPattern] must not be null.
-  UpWhitelistingTextInputFormatter(this.whitelistedPattern)
-      : assert(whitelistedPattern != null);
+  UpWhitelistingTextInputFormatter(this.whitelistedPattern) : assert(whitelistedPattern != null);
 
   /// A [Pattern] to extract all instances of allowed characters.
   ///
@@ -321,10 +297,7 @@ class UpWhitelistingTextInputFormatter extends TextInputFormatter {
       oldValue,
       newValue,
       (String substring) {
-        final String result = whitelistedPattern
-            .allMatches(substring.toUpperCase())
-            .map<String>((Match match) => match.group(0) ?? '')
-            .join();
+        final String result = whitelistedPattern.allMatches(substring.toUpperCase()).map<String>((Match match) => match.group(0) ?? '').join();
         if (result != null && result.isNotEmpty) {
           return result;
         }
@@ -334,8 +307,7 @@ class UpWhitelistingTextInputFormatter extends TextInputFormatter {
   }
 
   /// A [FilteringTextInputFormatter] that takes in digits `[0-9]` only.
-  static final FilteringTextInputFormatter digitsOnly =
-      FilteringTextInputFormatter.allow(RegExp(r'\d+'));
+  static final FilteringTextInputFormatter digitsOnly = FilteringTextInputFormatter.allow(RegExp(r'\d+'));
 
   TextEditingValue _selectionAwareTextManipulation(
     TextEditingValue old,
@@ -352,12 +324,9 @@ class UpWhitelistingTextInputFormatter extends TextInputFormatter {
     if (selectionStartIndex < 0 || selectionEndIndex < 0) {
       manipulatedText = substringManipulation(value.text);
     } else {
-      final String beforeSelection =
-          substringManipulation(value.text.substring(0, selectionStartIndex));
-      final String inSelection = substringManipulation(
-          value.text.substring(selectionStartIndex, selectionEndIndex));
-      final String afterSelection =
-          substringManipulation(value.text.substring(selectionEndIndex));
+      final String beforeSelection = substringManipulation(value.text.substring(0, selectionStartIndex));
+      final String inSelection = substringManipulation(value.text.substring(selectionStartIndex, selectionEndIndex));
+      final String afterSelection = substringManipulation(value.text.substring(selectionEndIndex));
       manipulatedText = beforeSelection + inSelection + afterSelection;
       if (value.selection.baseOffset > value.selection.extentOffset) {
         manipulatedSelection = value.selection.copyWith(
@@ -373,16 +342,13 @@ class UpWhitelistingTextInputFormatter extends TextInputFormatter {
     }
     return TextEditingValue(
       text: manipulatedText,
-      selection:
-          manipulatedSelection ?? const TextSelection.collapsed(offset: -1),
-      composing:
-          manipulatedText == value.text ? value.composing : TextRange.empty,
+      selection: manipulatedSelection ?? const TextSelection.collapsed(offset: -1),
+      composing: manipulatedText == value.text ? value.composing : TextRange.empty,
     );
   }
 }
 
-typedef CodeInputBuilder = Widget Function(
-    bool hasFocus, String char, int index);
+typedef CodeInputBuilder = Widget Function(bool hasFocus, String char, int index);
 
 class VerCodeInput extends StatefulWidget {
   const VerCodeInput._({
@@ -412,8 +378,7 @@ class VerCodeInput extends StatefulWidget {
     assert(length > 0, 'The length needs to be larger than zero.');
     assert(length.isFinite, 'The length needs to be finite.');
     assert(keyboardType != null);
-    assert(builder != null,
-        'The builder is required for rendering the character segments.');
+    assert(builder != null, 'The builder is required for rendering the character segments.');
 
     inputFormatters ??= _createInputFormatters(length, keyboardType);
 
@@ -486,11 +451,8 @@ class VerCodeInput extends StatefulWidget {
 
   /// A helping function that creates input formatters for a given length and
   /// keyboardType.
-  static List<TextInputFormatter> _createInputFormatters(
-      int length, TextInputType keyboardType) {
-    final formatters = <TextInputFormatter>[
-      LengthLimitingTextInputFormatter(length)
-    ];
+  static List<TextInputFormatter> _createInputFormatters(int length, TextInputType keyboardType) {
+    final formatters = <TextInputFormatter>[LengthLimitingTextInputFormatter(length)];
 
     // Add keyboard specific formatters.
     // For example, a code input with a number keyboard type probably doesn't
@@ -555,8 +517,7 @@ class _VerCodeInputState extends State<VerCodeInput> {
           onTap: () {
             final focusScope = FocusScope.of(context);
             focusScope.requestFocus(FocusNode());
-            Future.delayed(Duration.zero,
-                () => focusScope.requestFocus(widget.node ?? nodeInner));
+            Future.delayed(Duration.zero, () => focusScope.requestFocus(widget.node ?? nodeInner));
           },
           child: Container(
             color: Colors.transparent,
@@ -602,7 +563,7 @@ abstract class CodeInputBuilders {
     required BoxDecoration filledDecoration,
     required TextStyle emptyTextStyle,
     required TextStyle filledTextStyle,
-    Alignment alignment: Alignment.center,
+    Alignment alignment = Alignment.center,
   }) {
     return (bool hasFocus, String char, int index) => Container(
           width: totalSize.width,
@@ -614,20 +575,14 @@ abstract class CodeInputBuilders {
             width: char.isEmpty ? emptySize.width : filledSize.width,
             height: char.isEmpty ? emptySize.height : filledSize.height,
             alignment: Alignment.center,
-            child: Text(char,
-                style: char.isEmpty ? emptyTextStyle : filledTextStyle),
+            child: Text(char, style: char.isEmpty ? emptyTextStyle : filledTextStyle),
           ),
         );
   }
 
   /// Builds the input inside a circle.
   static CodeInputBuilder circle(
-      {double totalRadius = 30.0,
-      double emptyRadius = 10.0,
-      double filledRadius = 25.0,
-      required Border border,
-      required Color color,
-      required TextStyle textStyle}) {
+      {double totalRadius = 30.0, double emptyRadius = 10.0, double filledRadius = 25.0, required Border border, required Color color, required TextStyle textStyle}) {
     final BoxDecoration decoration = BoxDecoration(
       shape: BoxShape.circle,
       border: border,
@@ -654,7 +609,7 @@ abstract class CodeInputBuilders {
     required Border border,
     required Color color,
     required TextStyle textStyle,
-    Alignment alignment: Alignment.center,
+    Alignment alignment = Alignment.center,
   }) {
     final BoxDecoration decoration = BoxDecoration(
       border: border,

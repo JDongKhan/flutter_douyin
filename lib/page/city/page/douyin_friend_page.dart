@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../widgets/search_bar.dart';
+import '../../../widgets/search_bar.dart' as search;
 import '../../home/page/douyin_home_recommend_page.dart';
 
 /// @author jd
@@ -10,8 +10,7 @@ class DouyinFriendPage extends StatefulWidget {
   _DouyinFriendPageState createState() => _DouyinFriendPageState();
 }
 
-class _DouyinFriendPageState extends State<DouyinFriendPage>
-    with AutomaticKeepAliveClientMixin {
+class _DouyinFriendPageState extends State<DouyinFriendPage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
@@ -42,7 +41,7 @@ class _DouyinFriendPageState extends State<DouyinFriendPage>
             onPressed: () {},
           ),
           Expanded(
-            child: SearchBar(
+            child: search.SearchBar(
               hintText: '朋友',
               radius: 0,
               color: const Color(0x55ffffff),
